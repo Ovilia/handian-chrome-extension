@@ -13,7 +13,10 @@ function loadHandian(url) {
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function () { 
 		if (xhr.readyState == 4 && xhr.status == 200) {
-			panel.removeChild(document.getElementById('handian-loading'));
+			var loading = document.getElementById('handian-loading');
+			if (loading) {
+				panel.removeChild(loading);
+			}
 			
 			// url based on handian
 			var cnt = xhr.responseText.replace(/"\/images\//g, 
@@ -71,11 +74,18 @@ function initPanel() {
 }
 
 document.addEventListener('mouseup', function(event) {
-    var sel = window.getSelection().toString();
-	var reg = /[^\u0000-\u00FF]/;
-	if (sel && reg.test(sel)) {
-		loadHandian('http://www.zdic.net/search/?c=3&q=' + sel);
-	} else {
-		closeHandian();
-	}
+	chrome.storage.sync.get('enabled', function(result) {
+		if (result.enabled) {
+			var sel = window.getSelection().toString();
+			var reg = /[^\u0000-\u00FF]/;
+			if (sel && reg.test(sel)) {
+				loadHandian('http://www.zdic.net/search/?c=3&q=' + sel);
+			} else {
+				closeHandian();
+			}
+		} else {
+			closeHandian();
+		}
+	});
+    
 });

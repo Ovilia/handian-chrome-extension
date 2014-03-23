@@ -12,7 +12,8 @@
 	}],
 
 	"permissions": [
-		"http://*.zdic.net/"
+		"http://*.zdic.net/",
+		"storage"
 	],
 	"browser_action": {
 		"default_icon": "handian64.png",
