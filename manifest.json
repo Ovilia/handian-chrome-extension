@@ -1,0 +1,21 @@
+{
+	"manifest_version": 2,
+
+	"name": "汉典",
+	"description": "汉典划词查询",
+	"version": "1.0",
+	
+	"content_scripts": [{
+		"matches": ["http://*/*"],
+		"js": ["show.js"],
+		"run_at": "document_end"
+	}],
+
+	"permissions": [
+		"http://*.zdic.net/"
+	],
+	"browser_action": {
+		"default_icon": "handian64.png",
+		"default_popup": "popup.html"
+	}
+}
