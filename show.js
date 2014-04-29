@@ -4,37 +4,27 @@ function loadHandian(url) {
 	var panel = initPanel();
 	
 	// remove previous handian
-	var content = document.getElementById('handian-content');
-	if (content) {
-		panel.removeChild(content);
+	var previousContent = document.getElementById('handian-content');
+	if (previousContent) {
+		panel.removeChild(previousContent);
 	}
-
-	// load handian
-	var xhr = new XMLHttpRequest();
-	xhr.onreadystatechange = function () { 
-		if (xhr.readyState == 4 && xhr.status == 200) {
-			var loading = document.getElementById('handian-loading');
-			if (loading) {
-				panel.removeChild(loading);
-			}
-			
-			// url based on handian
-			var cnt = xhr.responseText.replace(/"\/images\//g, 
-					'"http:\/\/www.zdic.net\/images\/');
-			cnt = cnt.replace(/"\/p\//g, '"http:\/\/www.zdic.net\/p\/');
-			cnt = cnt.replace(/"\/css\//g, '"http:\/\/www.zdic.net\/css\/');
-			cnt = cnt.replace(/"\/js\//g, '"http:\/\/www.zdic.net\/js\/');
-			
-			var content = document.createElement('div');
-			content.innerHTML = cnt;
-			content.id = 'handian_content';
-			
-			panel.appendChild(content);
-		}
-	}
-	xhr.open("GET", url, true);
-	xhr.setRequestHeader('Content-type', 'text/html');
-	xhr.send();
+  
+  // add new content
+  var content = document.createElement('iframe');
+  content.frameBorder = '0';
+  content.src = url;
+	content.id = 'handian_content';	
+  content.style['display'] ='none';
+  content.style['width'] ='100%';
+  content.style['height'] ='500px';
+  content.addEventListener('load', function() {
+    var loading = document.getElementById('handian-loading');
+    if (loading) {
+      panel.removeChild(loading);
+    }
+    content.style.removeProperty('display');
+  });  
+	panel.appendChild(content);
 }
 
 function closeHandian() {
@@ -62,12 +52,6 @@ function initPanel() {
 	loading.innerHTML = '查询中，请稍候……';
 	loading.id = 'handian-loading';
 	panel.appendChild(loading);
-	
-	// disable handwriting
-	var zui = document.createElement('style');
-	zui.type = 'text/css';
-	zui.innerHTML = '.zui { display: none; }';
-	panel.appendChild(zui);
 	
 	document.body.appendChild(panel);
 	return panel;
