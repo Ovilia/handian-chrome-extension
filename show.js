@@ -9,21 +9,21 @@ function loadHandian(url) {
 		panel.removeChild(previousContent);
 	}
   
-  // add new content
-  var content = document.createElement('iframe');
-  content.frameBorder = '0';
-  content.src = url;
+    // add new content
+	var content = document.createElement('iframe');
+	content.frameBorder = '0';
+	content.src = url;
 	content.id = 'handian_content';	
-  content.style['display'] ='none';
-  content.style['width'] ='100%';
-  content.style['height'] ='500px';
-  content.addEventListener('load', function() {
-    var loading = document.getElementById('handian-loading');
-    if (loading) {
-      panel.removeChild(loading);
-    }
-    content.style.removeProperty('display');
-  });  
+	content.style['display'] = 'none';
+	content.style['width'] = '100%';
+	content.style['height'] = (window.innerHeight - 40) + 'px';
+	content.addEventListener('load', function() {
+	var loading = document.getElementById('handian-loading');
+	if (loading) {
+		panel.removeChild(loading);
+	}
+	content.style.removeProperty('display');
+	});  
 	panel.appendChild(content);
 }
 
