@@ -3,7 +3,7 @@
 
 	"name": "汉典",
 	"description": "汉典划词查询",
-	"version": "1.0",
+	"version": "1.1",
 	
 	"content_scripts": [{
 		"matches": ["http://*/*"],
