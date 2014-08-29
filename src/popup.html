@@ -7,25 +7,50 @@
 		body {
 			min-width: 357px;
 			overflow-x: hidden;
-			background-color: #ffe;
-			font-family: '微软雅黑', '黑体', '宋体';
+			background-color: #EEF3F0;
+			font-family: "Microsoft YaHei";
+			font-size: 12px;
 			padding: 10px;
+		}
+		
+		hr {
+		  margin: 40px 0 10px 0;
+		}
+		
+		a {
+		  color: #22C3AA;
+		}
+		
+		#enableBtn {
+		  background-color: #DB6968;
+		  color: #FFF;
+		  font-size: 15px;
+		  font-weight: bold;
+		  padding: 8px 16px;
+		  border-radius: 20px;
+		  text-decoration: none;
+		}
+		
+		#enableBtn:hover {
+		  background-color: #BB5A59;
+		}
+		
+		#enableBtn.enabled {
+		  background-color: #22C3AA;
+		}
+		
+		#enableBtn.enabled:hover {
+		  background-color: #157A6B;
 		}
     </style>
 	<script type="text/javascript" src="popup.js"></script>
   </head>
   <body>
-	<p><input type="checkbox" id="enableBtn" /><label for="enableBtn">是否启用</label></p>
+	<p><a href="#" id="enableBtn"><span id="enableVal">未</span>启用</a></p>
 	
 	<hr />
-	
-	<h3>插件开发者</h3>
-	<p><a href="http://zhangwenli.com" target="_blank">Ovilia</a>是个喜欢<a href="http://www.douban.com/people/ovilia1024/" target="_blank">读书</a>、<a href="http://lofter.zhangwenli.com target="_blank"">画画</a>的程旭媛。</p>
-	<p>2014年3月23日在读《资治通鉴》的时候，想到如果能够把汉典的划词功能拓展到其他网页就更好了，因此做了这个Chrome插件。希望也能帮助到喜欢文学的你！O(∩_∩)O</p>
-	<p>插件的代码在<a href="https://github.com/Ovilia/handian-for-chrome" target="_blank">Github</a>上开源，目前这个差距还有很多不足的地方，希望能得到更多的建议！欢迎邮件联系：me # zhangwenli.com</p>
-	
-	<h3>关于汉典</h3>
-	<p><a href="http://www.zdic.net/" target="_blank">汉典</a>是一个非常不错的汉语工具，对于古汉语查询尤其实用！你还可以在<a href="http://www.zdic.net/aboutus/" target="_blank">这里</a>看到更多关于汉典网站的介绍。</p>
+	  
+	<a href="https://github.com/Ovilia/handian-chrome-extension" target="_blank">关于本项目</a>
   </body>
 </html>
 

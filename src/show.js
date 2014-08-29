@@ -41,7 +41,7 @@ function initPanel() {
 	panel.style['position'] = 'fixed';
 	panel.style['left'] = '0'; 
 	panel.style['top'] = '0';
-	panel.style['background-color'] = '#ffe';
+	panel.style['background-color'] = '#EEF3F0';
 	panel.style['max-height'] = '100%';
 	panel.style['z-index'] = '1000';
 	panel.style['text-align'] = 'left';
