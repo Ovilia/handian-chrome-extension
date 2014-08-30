@@ -1,5 +1,5 @@
 var gb = {
-	enabled: false
+	enabled: true
 };
 
 function enableToggle() {
@@ -16,6 +16,10 @@ function updateHtml() {
 	document.getElementById('enableBtn').className = gb.enabled ?
 			'enabled' : 'disabled';
 	document.getElementById('enableVal').innerHTML = gb.enabled ? '已' : '未';
+	
+	chrome.browserAction.setIcon({
+		path: 'handian48' + (gb.enabled ? '' : '-disabled') + '.png'
+	});
 }
 
 window.onload = function() {
