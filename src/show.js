@@ -60,11 +60,30 @@ function initPanel() {
 document.addEventListener('mouseup', function(event) {
 	chrome.storage.sync.get('enabled', function(result) {
 		if (result.enabled) {
-			var sel = window.getSelection().toString();
+			var sel = window.getSelection();
+            var pos = sel.getRangeAt(0).getBoundingClientRect();
+    
+            // add button
+            var button = document.getElementById('handian-btn');
+            if (!button) {
+                button = document.createElement('img');
+                button.id = 'handian-btn';
+                button.src = 'https://raw.githubusercontent.com/Ovilia/handian-chrome-extension/master/src/handian48.png';
+                button.style['position'] = 'fixed';
+                button.style['left'] = pos.left + 'px';
+                button.style['top'] = pos.bottom + 10 + 'px';
+                button.style['cursor'] = 'pointer';
+                
+                document.body.appendChild(button);
+            } else {
+                button.style['display'] = 'block';
+            }
+    
 			var reg = /[^\u0000-\u00FF]/;
-			if (sel && reg.test(sel)) {
+            var selText = sel.toString();
+			if (selText && reg.test(selText)) {
 				var utf = new GB2312UTF8();
-				var ans = utf.Gb2312ToUtf8(sel);
+				var ans = utf.Gb2312ToUtf8(selText);
 				loadHandian('http://www.zdic.net/search/?c=3&q=' + ans);
 			} else {
 				closeHandian();
