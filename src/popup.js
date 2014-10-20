@@ -1,33 +1,33 @@
 var gb = {
-	enabled: true
+    enabled: true
 };
 
 function enableToggle() {
-	gb.enabled = !gb.enabled;
+    gb.enabled = !gb.enabled;
 
-	chrome.storage.sync.set({
-		'enabled': gb.enabled
-	}, function() {});
+    chrome.storage.sync.set({
+        'enabled': gb.enabled
+    }, function() {});
 
-	updateHtml();
+    updateHtml();
 }
 
 function updateHtml() {
-	document.getElementById('enableBtn').className = gb.enabled ?
-			'enabled' : 'disabled';
-	document.getElementById('enableVal').innerHTML = gb.enabled ? '已' : '未';
+    document.getElementById('enableBtn').className = gb.enabled ?
+            'enabled' : 'disabled';
+    document.getElementById('enableVal').innerHTML = gb.enabled ? '已' : '未';
 
-	chrome.browserAction.setIcon({
-		path: 'handian48' + (gb.enabled ? '' : '-disabled') + '.png'
-	});
+    chrome.browserAction.setIcon({
+        path: 'handian48' + (gb.enabled ? '' : '-disabled') + '.png'
+    });
 }
 
 window.onload = function() {
-	var check = document.getElementById('enableBtn');
-	check.addEventListener('click', enableToggle, false);
+    var check = document.getElementById('enableBtn');
+    check.addEventListener('click', enableToggle, false);
 
-	chrome.storage.sync.get('enabled', function(result) {
-		gb.enabled = result.enabled;
-		updateHtml();
-	});
+    chrome.storage.sync.get('enabled', function(result) {
+        gb.enabled = result.enabled;
+        updateHtml();
+    });
 }
