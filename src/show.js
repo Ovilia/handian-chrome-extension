@@ -82,7 +82,7 @@ document.addEventListener('mouseup', function(event) {
             if (!button) {
                 button = document.createElement('img');
                 button.id = 'handian-btn';
-                button.src = 'https://raw.githubusercontent.com/Ovilia/handian-chrome-extension/master/src/handian48.png';
+                button.src = 'https://raw.githubusercontent.com/Ovilia/handian-chrome-extension/master/res/handian32.png';
                 button.style['position'] = 'fixed';
                 button.style['cursor'] = 'pointer';
                 
@@ -106,6 +106,14 @@ document.addEventListener('mouseup', function(event) {
         }
     });
 });
+
+document.onscroll = function(event) {
+    var sel = window.getSelection();
+    var pos = sel.getRangeAt(0).getBoundingClientRect();
+    var button = document.getElementById('handian-btn');
+    button.style['left'] = pos.left + 'px';
+    button.style['top'] = pos.bottom + 10 + 'px';
+}
 
 /* Convert Gb2312 To Utf8
 /* code from http://blog.sina.com.cn/s/blog_8ba818a50100wabh.html */
