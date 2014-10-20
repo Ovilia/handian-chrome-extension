@@ -37,6 +37,13 @@
 她的微博： http://weibo.com/plainjane  
 欢迎造访交流！
 
+## 更新日志
+
+### v1.2.2
+
+- 选中内容后出现悬浮按钮，点击后才进行查询，以免误操作
+- 图标改变
+
 ## 问题反馈
 
 有问题的话，<a href="https://github.com/Ovilia/handian-chrome-extension/issues/new">报个issue</a>吧！
