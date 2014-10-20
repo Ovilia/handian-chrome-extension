@@ -9,6 +9,12 @@
 
 ## 截图
 
+![](https://raw.githubusercontent.com/Ovilia/handian-chrome-extension/master/res/screenshoot-1.png)
+
+![](https://raw.githubusercontent.com/Ovilia/handian-chrome-extension/master/res/screenshoot-3.png)
+
+![](https://raw.githubusercontent.com/Ovilia/handian-chrome-extension/master/res/screenshoot-2.png)
+
 ![](https://raw.githubusercontent.com/Ovilia/handian-chrome-extension/master/res/screenshoot.png)
 
 ## 下载地址
