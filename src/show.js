@@ -1,9 +1,9 @@
 var gb = {
-    searchTxt: null
+    searchTxt: null,
+    enabled: false
 };
 
 function loadHandian() {
-    console.log('loading');
     // init panel
     closeHandian();
     var panel = initPanel();
@@ -73,6 +73,7 @@ document.addEventListener('mouseup', function(event) {
         return;
     }
     chrome.storage.sync.get('enabled', function(result) {
+        gb.enabled = result.enabled;
         if (result.enabled) {
             var sel = window.getSelection();
             var pos = sel.getRangeAt(0).getBoundingClientRect();
@@ -109,10 +110,14 @@ document.addEventListener('mouseup', function(event) {
 
 document.onscroll = function(event) {
     var sel = window.getSelection();
-    var pos = sel.getRangeAt(0).getBoundingClientRect();
-    var button = document.getElementById('handian-btn');
-    button.style['left'] = pos.left + 'px';
-    button.style['top'] = pos.bottom + 10 + 'px';
+    if (sel && gb.enabled) {
+        var pos = sel.getRangeAt(0).getBoundingClientRect();
+        var button = document.getElementById('handian-btn');
+        if (button) {
+            button.style['left'] = pos.left + 'px';
+            button.style['top'] = pos.bottom + 10 + 'px';
+        }
+    }
 }
 
 /* Convert Gb2312 To Utf8
