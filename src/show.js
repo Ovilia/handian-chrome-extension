@@ -86,6 +86,7 @@ document.addEventListener('mouseup', function(event) {
                 button.src = 'https://raw.githubusercontent.com/Ovilia/handian-chrome-extension/master/res/handian32.png';
                 button.style['position'] = 'fixed';
                 button.style['cursor'] = 'pointer';
+                button.style['z-index'] = '1000';
                 
                 document.body.appendChild(button);
             } else {
