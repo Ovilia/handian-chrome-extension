@@ -92,8 +92,8 @@ document.addEventListener('mouseup', function(event) {
             } else {
                 button.style['display'] = 'block';
             }
-            button.style['left'] = pos.left +window.pageXOffset+ 'px';
-            button.style['top'] = pos.bottom +window.pageYOffset+ 10 + 'px';
+            button.style['left'] = pos.left + window.pageXOffset + 'px';
+            button.style['top'] = pos.bottom + window.pageYOffset + 10 + 'px';
             
             var reg = /[^\u0000-\u00FF]/;
             var selText = sel.toString();

@@ -3,7 +3,7 @@
 
     "name": "汉典划词查询",
     "description": "在任何页面用汉典划词查询的工具，文学爱好者不可或缺的利器！",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "icons": {
         "16": "handian16.png",
         "48": "handian48.png",
