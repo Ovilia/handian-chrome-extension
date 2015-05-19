@@ -68,7 +68,7 @@ function initPanel() {
 }
 
 document.addEventListener('mouseup', function(event) {
-    if (event.srcElement === document.getElementById('handian-btn')) {
+    if (event.target === document.getElementById('handian-btn')) {
         loadHandian();
         return;
     }
@@ -84,7 +84,7 @@ document.addEventListener('mouseup', function(event) {
                 button = document.createElement('img');
                 button.id = 'handian-btn';
                 button.src = 'https://raw.githubusercontent.com/Ovilia/handian-chrome-extension/master/res/handian32.png';
-                button.style['position'] = 'fixed';
+                button.style['position'] = 'absolute';
                 button.style['cursor'] = 'pointer';
                 button.style['z-index'] = '1000';
                 
@@ -92,8 +92,8 @@ document.addEventListener('mouseup', function(event) {
             } else {
                 button.style['display'] = 'block';
             }
-            button.style['left'] = pos.left + 'px';
-            button.style['top'] = pos.bottom + 10 + 'px';
+            button.style['left'] = pos.left +window.pageXOffset+ 'px';
+            button.style['top'] = pos.bottom +window.pageYOffset+ 10 + 'px';
             
             var reg = /[^\u0000-\u00FF]/;
             var selText = sel.toString();
@@ -108,18 +108,6 @@ document.addEventListener('mouseup', function(event) {
         }
     });
 });
-
-document.onscroll = function(event) {
-    var sel = window.getSelection();
-    if (sel && gb.enabled) {
-        var pos = sel.getRangeAt(0).getBoundingClientRect();
-        var button = document.getElementById('handian-btn');
-        if (button) {
-            button.style['left'] = pos.left + 'px';
-            button.style['top'] = pos.bottom + 10 + 'px';
-        }
-    }
-}
 
 /* Convert Gb2312 To Utf8
 /* code from http://blog.sina.com.cn/s/blog_8ba818a50100wabh.html */
