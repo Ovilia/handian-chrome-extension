@@ -53,7 +53,7 @@ function initPanel() {
     panel.style['top'] = '0';
     panel.style['background-color'] = '#EEF3F0';
     panel.style['max-height'] = '100%';
-    panel.style['z-index'] = '1000';
+    panel.style['z-index'] = '999999';
     panel.style['text-align'] = 'left';
     panel.style['padding'] = '20px';
     panel.style['overflow'] = 'auto';
